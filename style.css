@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  max-width: 500px;
+  max-width: min(500px, 95vw);
 }
 
 a {
