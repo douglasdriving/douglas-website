@@ -3,19 +3,50 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Douglas Driving">
-	<img src={import.meta.env.BASE_URL + "/images/douglas.JPG"} alt="profile picture of douglas" style="max-height: 50vh;">
+	<div class="content-container">
+		<img src={import.meta.env.BASE_URL + "/images/douglas.JPG"} alt="profile picture of douglas" class="profile-image">
 
-	<p>
-		I am a human being with a desire to rethink, redefine, and rebuild how we live together in society. I believe
-		the most important thing we can do is form ways to live authentic and connected lives in which all citizens feel a sense
-		of belonging, community, and purpose. While I sometimes struggle to find (professional) ways to apply my skills as an
-		engineer and systems designer to foster this transformation, I enjoy thinking up new ways in which technology can be
-		part of it.
-	</p>
+		<p>
+			I am a human being with a desire to rethink, redefine, and rebuild how we live together in society. I believe
+			the most important thing we can do is form ways to live authentic and connected lives in which all citizens feel a sense
+			of belonging, community, and purpose. While I sometimes struggle to find (professional) ways to apply my skills as an
+			engineer and systems designer to foster this transformation, I enjoy thinking up new ways in which technology can be
+			part of it.
+		</p>
 
-	<p>
-		<b>Contact:</b>
-		douglasdriving@gmail.com |
-		<a href="https://www.linkedin.com/in/douglas-driving/" target="_blank">LinkedIn</a>
-	</p>
+		<hr class="divider">
+
+		<p class="contact">
+			<b>Contact:</b>
+			douglasdriving@gmail.com |
+			<a href="https://www.linkedin.com/in/douglas-driving/" target="_blank">LinkedIn</a>
+		</p>
+	</div>
 </Layout>
+
+<style>
+	.content-container {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	.profile-image {
+		width: 100%;
+		height: 30vh;
+		object-fit: cover;
+		object-position: center top;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		border-radius: 4px;
+	}
+
+	.divider {
+		border: none;
+		border-top: 1px solid #7d7d7d;
+		margin: 1.5em 0;
+		width: 100%;
+	}
+
+	.contact {
+		margin-top: 1em;
+	}
+</style>
