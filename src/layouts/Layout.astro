@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+console.log('Current path:', currentPath);
 ---
 
 <!doctype html>
@@ -20,18 +22,18 @@ const { title } = Astro.props;
 			<h1>&#x1F47E; Douglas Driving &#x1F47E;</h1>
 
 			<nav>
-				<a href="/">Home</a>
-				|
-				<a href="/about">About Me</a>
-				|
-				<a href="/projects">Projects</a>
-				|
-				<a href="/thoughts">Thoughts</a>
+				<a class:list={["nav-link", { active: currentPath === "/" }]} href="/">Home</a>
+				<span>|</span>
+				<a class:list={["nav-link", { active: currentPath === "/about" }]} href="/about">About Me</a>
+				<span>|</span>
+				<a class:list={["nav-link", { active: currentPath === "/projects" }]} href="/projects">Projects</a>
+				<span>|</span>
+				<a class:list={["nav-link", { active: currentPath === "/thoughts" }]} href="/thoughts">Thoughts</a>
 			</nav>
 
 			<slot />
 		</div>
-		<style is:global>
+		<style>
 			body {
 				font-family: system-ui, sans-serif;
 				margin: 0;
@@ -45,14 +47,26 @@ const { title } = Astro.props;
 			}
 			nav {
 				margin: 20px 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 8px;
 			}
-			nav a {
+			.nav-link {
 				text-decoration: none;
-				color: #333;
+				color: #666;
 				padding: 5px 10px;
+				transition: all 0.2s;
+				border-radius: 4px;
 			}
-			nav a:hover {
-				text-decoration: underline;
+			.nav-link:hover {
+				color: #000;
+				background-color: #f5f5f5;
+			}
+			.nav-link.active {
+				font-weight: bold;
+				color: #000;
+				background-color: #f0f0f0;
 			}
 			img {
 				max-width: 100%;
