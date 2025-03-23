@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Douglas Driving">
-	<img src="/images/douglas.JPG" alt="profile picture of douglas" style="max-height: 50vh;">
+	<img src={import.meta.env.BASE_URL + "/images/douglas.JPG"} alt="profile picture of douglas" style="max-height: 50vh;">
 
 	<p>
 		I am a human being with a desire to rethink, redefine, and rebuild how we live together in society. I believe

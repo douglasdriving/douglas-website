@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Projects - Douglas Driving">
 	<div class="projects-content">
 		<a href="https://bento.me/kizunacollective" target="_blank">
-			<img src="/images/projectBanners/kizunaBanner.png" alt="kizuna collective logo">
+			<img src={import.meta.env.BASE_URL + "/images/projectBanners/kizunaBanner.png"} alt="kizuna collective logo">
 		</a>
 		<p class="project-description">
 			<b><a href="https://bento.me/kizunacollective" target="_blank">kizuna collective</a>, Community Design,
@@ -14,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
 		</p>
 
 		<a href="https://github.com/douglasdriving/The-Fourth-Wall" target="_blank">
-			<img src="/images/projectBanners/4thWallBanner.png" alt="screenshot from the the fourth wall game">
+			<img src={import.meta.env.BASE_URL + "/images/projectBanners/4thWallBanner.png"} alt="screenshot from the the fourth wall game">
 		</a>
 		<p class="project-description">
 			<b><a href="https://github.com/douglasdriving/The-Fourth-Wall" target="_blank">The Fourth Wall</a>,
@@ -24,7 +24,7 @@ import Layout from '../layouts/Layout.astro';
 		</p>
 
 		<a href="https://douglasdriving.wixsite.com/home/unwritten" target="_blank">
-			<img src="/images/projectBanners/unwrittenBanner.png" alt="screenshots from the unwritten game">
+			<img src={import.meta.env.BASE_URL + "/images/projectBanners/unwrittenBanner.png"} alt="screenshots from the unwritten game">
 		</a>
 		<p class="project-description">
 			<b><a href="https://douglasdriving.wixsite.com/home/unwritten" target="_blank">Unwritten</a>,
@@ -33,7 +33,7 @@ import Layout from '../layouts/Layout.astro';
 		</p>
 
 		<a href="https://douglasdriving.itch.io/" target="_blank">
-			<img src="/images/projectBanners/miniGamesBanner.png" alt="thumbnails from various game projects">
+			<img src={import.meta.env.BASE_URL + "/images/projectBanners/miniGamesBanner.png"} alt="thumbnails from various game projects">
 		</a>
 		<p class="project-description">
 			<b><a href="https://douglasdriving.itch.io/" target="_blank">Small game projects</a>,

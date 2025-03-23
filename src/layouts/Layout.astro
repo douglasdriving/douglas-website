@@ -14,7 +14,7 @@ console.log('Current path:', currentPath);
 		<meta charset="UTF-8" />
 		<meta name="description" content="Douglas Driving's personal website" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/douglas-website/favicon.svg" />
 		<title>{title}</title>
 	</head>
 	<body>
@@ -22,13 +22,13 @@ console.log('Current path:', currentPath);
 			<h1>&#x1F47E; Douglas Driving &#x1F47E;</h1>
 
 			<nav>
-				<a class:list={["nav-link", { active: currentPath === "/" }]} href="/">Home</a>
+				<a class:list={["nav-link", { active: currentPath === "/douglas-website/" || currentPath === "/douglas-website" }]} href="/douglas-website/">Home</a>
 				<span>|</span>
-				<a class:list={["nav-link", { active: currentPath === "/about" }]} href="/about">About Me</a>
+				<a class:list={["nav-link", { active: currentPath === "/douglas-website/about/" }]} href="/douglas-website/about/">About Me</a>
 				<span>|</span>
-				<a class:list={["nav-link", { active: currentPath === "/projects" }]} href="/projects">Projects</a>
+				<a class:list={["nav-link", { active: currentPath === "/douglas-website/projects/" }]} href="/douglas-website/projects/">Projects</a>
 				<span>|</span>
-				<a class:list={["nav-link", { active: currentPath === "/thoughts" }]} href="/thoughts">Thoughts</a>
+				<a class:list={["nav-link", { active: currentPath === "/douglas-website/thoughts/" }]} href="/douglas-website/thoughts/">Thoughts</a>
 			</nav>
 
 			<slot />
