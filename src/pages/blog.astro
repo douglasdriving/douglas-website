@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Get all blog posts
+const posts = await Astro.glob('../../content/blog/*.md');
+const sortedPosts = posts.sort((a, b) => {
+    return new Date(b.frontmatter.publishDate).getTime() - new Date(a.frontmatter.publishDate).getTime();
+});
+---
+
+<Layout title="Blog - Douglas Driving">
+	<div class="blog-content">
+		{sortedPosts.map((post) => (
+			<article class="blog-post">
+				<h2>{post.frontmatter.title}</h2>
+				<div class="post-content">
+					<post.Content />
+				</div>
+				<i>
+					{post.frontmatter.publishDate} (added)
+					{post.frontmatter.editDate && `, ${post.frontmatter.editDate} (edited)`}
+				</i>
+			</article>
+		))}
+	</div>
+</Layout>
+
+<style>
+	.blog-content {
+		text-align: left;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+	.blog-post {
+		margin: 2rem 0;
+	}
+	hr {
+		margin: 2rem 0;
+		border: none;
+		border-top: 1px solid #ddd;
+	}
+	i {
+		display: block;
+		color: #666;
+		margin: 0.5rem 0 1rem;
+	}
+	.post-content {
+		line-height: 1.6;
+	}
+</style>
