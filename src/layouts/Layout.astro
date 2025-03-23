@@ -1,0 +1,77 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+console.log('Current path:', currentPath);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Douglas Driving's personal website" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>&#x1F47E; Douglas Driving &#x1F47E;</h1>
+
+			<nav>
+				<a class:list={["nav-link", { active: currentPath === "/" }]} href="/">Home</a>
+				<span>|</span>
+				<a class:list={["nav-link", { active: currentPath === "/about" }]} href="/about">About Me</a>
+				<span>|</span>
+				<a class:list={["nav-link", { active: currentPath === "/projects" }]} href="/projects">Projects</a>
+				<span>|</span>
+				<a class:list={["nav-link", { active: currentPath === "/thoughts" }]} href="/thoughts">Thoughts</a>
+			</nav>
+
+			<slot />
+		</div>
+		<style>
+			body {
+				font-family: system-ui, sans-serif;
+				margin: 0;
+				padding: 20px;
+				line-height: 1.6;
+			}
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			nav {
+				margin: 20px 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 8px;
+			}
+			.nav-link {
+				text-decoration: none;
+				color: #666;
+				padding: 5px 10px;
+				transition: all 0.2s;
+				border-radius: 4px;
+			}
+			.nav-link:hover {
+				color: #000;
+				background-color: #f5f5f5;
+			}
+			.nav-link.active {
+				font-weight: bold;
+				color: #000;
+				background-color: #f0f0f0;
+			}
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		</style>
+	</body>
+</html>
