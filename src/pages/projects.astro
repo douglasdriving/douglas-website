@@ -1,38 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
-import { Fragment } from 'astro/components';
-
-const projects = await getCollection('projects');
-const sortedProjects = projects.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
-
-// Render the markdown content
-const renderedProjects = await Promise.all(
-  sortedProjects.map(async (project: CollectionEntry<'projects'>) => {
-    const { Content } = await project.render();
-    return { ...project, Content };
-  })
-);
 ---
 
 <Layout title="Projects - Douglas Driving">
 	<div class="projects-content">
-		{renderedProjects.map(({ data, Content }: { data: CollectionEntry<'projects'>['data']; Content: any }) => (
-			<Fragment>
-				<div class="project-item">
-					<a href={data.link} target="_blank" class="project-link">
-						<img src={import.meta.env.BASE_URL + data.banner} alt={data.title}>
-					</a>
-					<div class="project-description">
-						<b>
-							<a href={data.link} target="_blank">{data.title}</a>,
-							{data.category}, {data.period}:
-						</b>
-						<Content />
-					</div>
-				</div>
-			</Fragment>
-		))}
+		<a href="https://bento.me/kizunacollective" target="_blank">
+			<img src={import.meta.env.BASE_URL + "/images/projectBanners/kizunaBanner.png"} alt="kizuna collective logo">
+		</a>
+		<p class="project-description">
+			<b><a href="https://bento.me/kizunacollective" target="_blank">kizuna collective</a>, Community Design,
+				Current:</b>
+			Building a social community for authentic connection in Tokyo.
+		</p>
+
+		<a href="https://github.com/douglasdriving/The-Fourth-Wall" target="_blank">
+			<img src={import.meta.env.BASE_URL + "/images/projectBanners/4thWallBanner.png"} alt="screenshot from the the fourth wall game">
+		</a>
+		<p class="project-description">
+			<b><a href="https://github.com/douglasdriving/The-Fourth-Wall" target="_blank">The Fourth Wall</a>,
+				Game Development, Current:</b>
+			A solo project in which I build a first-person exploration game with meta-narrative elements and linguistic game
+			mechanics.
+		</p>
+
+		<a href="https://douglasdriving.wixsite.com/home/unwritten" target="_blank">
+			<img src={import.meta.env.BASE_URL + "/images/projectBanners/unwrittenBanner.png"} alt="screenshots from the unwritten game">
+		</a>
+		<p class="project-description">
+			<b><a href="https://douglasdriving.wixsite.com/home/unwritten" target="_blank">Unwritten</a>,
+				Game & app development, 2021-2022:</b>
+			A solo project where I built a text-based online game where players write stories together.
+		</p>
+
+		<a href="https://douglasdriving.itch.io/" target="_blank">
+			<img src={import.meta.env.BASE_URL + "/images/projectBanners/miniGamesBanner.png"} alt="thumbnails from various game projects">
+		</a>
+		<p class="project-description">
+			<b><a href="https://douglasdriving.itch.io/" target="_blank">Small game projects</a>,
+				Design and development, 2017-current:</b>
+			A collection of small game projects I have worked on solo and in small teams.
+		</p>
 	</div>
 </Layout>
 
@@ -41,39 +48,13 @@ const renderedProjects = await Promise.all(
 		text-align: left;
 		max-width: 800px;
 		margin: 0 auto;
-		padding: 0 1rem;
 	}
-
-	.project-item {
-		margin-bottom: 3rem;
-	}
-
-	.project-link {
-		display: block;
-		text-decoration: none;
-	}
-
-	.projects-content img {
-		width: 100%;
-		margin-top: 2em;
-		border-radius: 10px;
-		transition: transform 0.2s;
-	}
-
-	.projects-content img:hover {
-		transform: scale(1.01);
-	}
-
 	.project-description {
-		margin: 1em 0;
+		margin: 1rem 0 2rem 0;
 	}
-
-	.project-description a {
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.project-description a:hover {
-		text-decoration: underline;
+	img {
+		width: 100%;
+		border-radius: 8px;
+		margin-top: 1rem;
 	}
 </style>
