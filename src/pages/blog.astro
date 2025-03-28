@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 // Get all blog posts
 const posts = await Astro.glob('../../content/blog/*.md');
 const sortedPosts = posts.sort((a, b) => {
-    return new Date(b.frontmatter.publishDate).getTime() - new Date(a.frontmatter.publishDate).getTime();
+    return new Date(a.frontmatter.publishDate).getTime() - new Date(b.frontmatter.publishDate).getTime();
 });
 ---
 
