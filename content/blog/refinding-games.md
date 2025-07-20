@@ -1,6 +1,6 @@
 ---
 title: "Refinding Games"
-publishDate: "2024-03-09"
+publishDate: "2025-03-09"
 ---
 
 There was a time in my life when games were by far the most fascinating thing the world had to offer. The sense of awe, wonder, and infinite potential their worlds would spark in me kept me completely immersed and made the rest of the world disappear momentarily.
